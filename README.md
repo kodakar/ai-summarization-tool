@@ -1,2 +1,2 @@
 # ai-summarization-tool
-AIによる要約ツール
+AIによる要約ツール（できない）
