@@ -12,6 +12,11 @@ venv/
 *.so
 *.pack
 
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
 # Flask関連
 instance/
 .webassets-cache
