@@ -69,3 +69,23 @@ dist/
 *.tmp
 *.temp
 
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.mypy_cache/
+.pytest_cache/
+.hypothesis/
