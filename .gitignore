@@ -1,0 +1,66 @@
+# Python関連
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 仮想環境
+venv/
+env/
+ENV/
+
+venv/
+*.so
+*.pack
+
+# Flask関連
+instance/
+.webassets-cache
+
+# データベース
+*.db
+*.sqlite
+
+# ログファイル
+*.log
+
+# OS関連
+.DS_Store
+Thumbs.db
+
+# エディタ/IDE関連
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 環境変数ファイル
+.env
+
+# 依存関係
+pip-log.txt
+
+# テストカバレッジ
+htmlcov/
+.coverage
+.coverage.*
+.cache
+
+# ビルド関連
+build/
+dist/
+*.egg-info/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# Azure関連（必要に応じて）
+.azure/
+
+# その他
+*.bak
+*.tmp
+*.temp
+
