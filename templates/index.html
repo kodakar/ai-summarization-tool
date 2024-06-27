@@ -1,0 +1,37 @@
+from flask import Flask, render_template, request
+from transformers import pipeline
+import torch
+
+app = Flask(__name__)
+
+# 要約モデルの初期化
+try:
+    summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+except Exception as e:
+    print(f"モデルの読み込みに失敗しました: {e}")
+    summarizer = None
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    summary = ""
+    original_text = ""
+    error = None
+    if request.method == 'POST':
+        original_text = request.form['text']
+        max_length = int(request.form['max_length'])
+        min_length = int(request.form['min_length'])
+        
+        if len(original_text.split()) < min_length:
+            error = "テキストが短すぎます。もう少し長いテキストを入力してください。"
+        elif summarizer is None:
+            error = "申し訳ありませんが、現在要約機能が利用できません。"
+        else:
+            try:
+                summary = summarizer(original_text, max_length=max_length, min_length=min_length, do_sample=False)[0]['summary_text']
+            except Exception as e:
+                error = f"要約中にエラーが発生しました: {e}"
+    
+    return render_template('index.html', summary=summary, original_text=original_text, error=error)
+
+if __name__ == '__main__':
+    app.run(debug=True)
